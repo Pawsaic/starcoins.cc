@@ -19,7 +19,6 @@
       color: #fff;
     }
 
-    /* Video Background */
     .video-bg {
       position: fixed;
       top: 0;
@@ -47,7 +46,6 @@
       z-index: -1;
     }
 
-    /* Main content */
     .container {
       padding: 40px;
       text-align: center;
@@ -59,8 +57,8 @@
       font-size: 38px;
       margin-bottom: 20px;
       color: #fff;
-      -webkit-text-stroke: 1px #000; /* Outline */
-      text-shadow: 0 0 5px rgba(0,0,0,0.7); /* Soft glow for extra visibility */
+      -webkit-text-stroke: 1px #000;
+      text-shadow: 0 0 5px rgba(0,0,0,0.7);
     }
 
 
@@ -88,7 +86,6 @@
       background: #f4c400;
     }
 
-    /* Modal Styled Like Original */
     .modal {
       display: none;
       position: fixed;
@@ -158,18 +155,12 @@
   </style>
 </head>
 <body>
-
-  <!-- Background Video -->
   <div class="video-bg">
     <video autoplay muted loop playsinline>
       <source src="sso.mp4" type="video/mp4">
     </video>
   </div>
-
-  <!-- Overlay -->
   <div class="overlay"></div>
-
-  <!-- Main Site Content -->
   <div id="mainContent">
     <div class="container">
       <h1>Buy Star Coins</h1>
@@ -183,8 +174,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Modal -->
   <div class="modal" id="purchaseModal">
     <span class="close" onclick="closeModal()">&times;</span>
     <h2 id="modalTitle">Buy Coins</h2>
@@ -205,12 +194,10 @@
       Send the screenshot to:
       <div class="discord-info">
         User: <strong>Pawsaic</strong> on Discord<br>
-        OR join our server: <a href="https://discord.gg/starcoins" target="_blank">discord.gg/starcoins</a>
+        OR join our server: <a href="https://discord.gg/742Q9nUphE" target="_blank">discord.gg/742Q9nUphE</a>
       </div>
     </div>
   </div>
-
-  <!-- Script -->
   <script>
     function openModal(coins, price) {
       document.getElementById('modalTitle').textContent = `Buy ${coins} Star Coins`;
