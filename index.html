@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StarCoins.cc – Buy Star Coins</title>
+  <link rel="icon" href="https://i.imgur.com/A86Ci6Z.png" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    /* Video background wrapper */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: -2;
+    }
+
+    .video-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(8px);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: -1;
+    }
+
+    .container {
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .button-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .coin-button {
+      padding: 15px 25px;
+      background: #ffd700;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #000;
+      transition: background 0.3s;
+    }
+
+    .coin-button:hover {
+      background: #f4c400;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 90%;
+      max-width: 500px;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.85);
+      padding: 30px;
+      border-radius: 15px;
+      z-index: 1000;
+      color: white;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    }
+
+    .modal h2 {
+      margin-top: 0;
+    }
+
+    .modal a {
+      color: #80bfff;
+      font-weight: bold;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .blurred {
+      filter: blur(6px);
+      transition: filter 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="https://vimeo.com/1075082613/9e510008f7?ts=0&share=copy" type="video/webm">
+      <!-- Replace the above with your own Star Stable video -->
+    </video>
+  </div>
+
+  <!-- Dark overlay -->
+  <div class="overlay"></div>
+
+  <!-- Main content -->
+  <div id="mainContent">
+    <div class="container">
+      <h1>Buy Star Coins</h1>
+      <p>Select an amount:</p>
+      <div class="button-grid">
+        <button class="coin-button" onclick="openModal(100, 5)">100 Coins – €5</button>
+        <button class="coin-button" onclick="openModal(500, 10)">500 Coins – €10</button>
+        <button class="coin-button" onclick="openModal(1000, 15)">1000 Coins – €15</button>
+        <button class="coin-button" onclick="openModal(2000, 25)">2000 Coins – €25</button>
+        <button class="coin-button" onclick="openModal(5000, 35)">5000 Coins – €35</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="purchaseModal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle">Buy Coins</h2>
+    <p><strong>Step 1:</strong> Send <span id="modalPrice"></span> via <strong>Friends & Family</strong> to:</p>
+    <p><a href="https://www.paypal.me/starcoinscc" target="_blank">paypal.me/starcoinscc</a></p>
+    <p><em>Do not mention anything about Star Coins or Star Stable in the notes.</em></p>
+    <p><strong>Step 2:</strong> Take a screenshot of your payment confirmation.</p>
+    <p><strong>Step 3:</strong> Send the screenshot + your Star Stable username to:</p>
+    <p>Discord: <strong>Pawsaic</strong><br>or join our server: <a href="https://discord.gg/starcoins" target="_blank">discord.gg/starcoins</a></p>
+  </div>
+
+  <!-- Script -->
+  <script>
+    function openModal(coins, price) {
+      document.getElementById('modalTitle').textContent = `Buy ${coins} Star Coins`;
+      document.getElementById('modalPrice').textContent = `€${price}`;
+      document.getElementById('purchaseModal').style.display = 'block';
+      document.getElementById('mainContent').classList.add('blurred');
+    }
+
+    function closeModal() {
+      document.getElementById('purchaseModal').style.display = 'none';
+      document.getElementById('mainContent').classList.remove('blurred');
+    }
+  </script>
+</body>
+</html>
